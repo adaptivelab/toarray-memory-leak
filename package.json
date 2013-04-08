@@ -1,0 +1,11 @@
+{
+  "name": "mongodb-native-memory-leak",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "mongodb": "~1.2.13",
+    "heapdump": "~0.1.0",
+    "http-server": "~0.5.3",
+    "bower": "0.8.6"
+  }
+}

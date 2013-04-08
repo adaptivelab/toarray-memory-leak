@@ -24,6 +24,11 @@ Getting started
     # setup vagrant (requires vagrant)
     $ vagrant up
 
+## Initialise the database
+
+    # load the database with some data, you might want to read it first
+    $ python utils/initialise_database.py
+
 ## Run the tests
 
     # run leaky or non-leaky code, and visualise memory usage:

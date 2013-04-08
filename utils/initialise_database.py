@@ -12,16 +12,7 @@ def initialise_database():
     db           = connection.leak_demo
     questions    = db.questions
 
-    # questions.ensure_index("topic")
     questions.ensure_index("id")
-    # questions.ensure_index("creationDate")
-    # questions.ensure_index("views")
-    # questions.ensure_index("completes")
-    # questions.ensure_index("status")
-    # questions.ensure_index("question")
-    # questions.ensure_index("random1")
-    # questions.ensure_index("random2")
-    # questions.ensure_index("random3")
 
     questions.insert({'id':1, 'topic':'news',       'views':203,    'completes':95,     'status':'Active', 'random1':random.random(), 'random2':random.random(), 'random3':random.random()})
     questions.insert({'id':2, 'topic':'sport',      'views':48,     'completes':37,     'status':'Never Started',     'random1':random.random(), 'random2':random.random(), 'random3':random.random()})

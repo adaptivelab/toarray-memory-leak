@@ -3,33 +3,32 @@ These load tests are a bit complicated, sorry!
 Getting started
 ===============
 
-There are essentially three components to the load tester, the
-__memory monitor__, the __load testers__ and the __visualiser__.
+## Requirements
 
-    # Run the web server first (unless you want to capture the 'boot up' usage)
-    $ cd ../../ && foreman start poll
+- node.js with npm
+- python with pip
+- foreman (gem)
+- vagrant
 
-    # Then run the memory monitor:
-    $ ./memory_monitor.py
+## Install dependencies
 
-    # Then run one of the tests*:
-    $ ./tests/getquestionfrompool3.sh
+    # install node modules
+    $ npm install
 
-The test is now running, it'll take about 5 minutes to complete.
+    # install components for visualiser (requires bower)
+    $ bower install
 
-Getting the results
-===================
+    # install python dependencies
+    $ pip install -r requirements.txt
 
-Once the test is complete you should shutdown the memory monitor (Ctrl-c).
+    # setup vagrant (requires vagrant)
+    $ vagrant up
 
-The memory logs are stored at `/test/load/results/memory.log`.
+## Run the tests
 
-To visualise the results:
+    # run leaky or non-leaky code, and visualise memory usage:
+    $ foreman start -f leaky.Procfile       # leaky
+    $ foreman start -f non_leaky.Procfile   # non_leaky
 
-    # Run a local webserver on port 8888:
-    $ ./webserver.sh
-
-And then go to `http://localhost:8888/visualiser/`
-
-If you want to keep the results, rename the `memory.log` file, as
-`memory_monitor.py`, will wipe it the next time it runs.
+    # run the load tests
+    $ fab vagrant load_test

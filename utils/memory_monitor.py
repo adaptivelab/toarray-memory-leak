@@ -6,6 +6,10 @@ import logging
 import time
 import shutil
 import atexit
+import os
+
+
+log_filename='./utils/results/memory.log'
 
 
 def get_usage(program):
@@ -16,13 +20,14 @@ def get_usage(program):
 
 
 def savelog():
-    shutil.copy('./utils/results/memory.log','./utils/results/memory.log.'+str(int(time.time())))
+    if os.path.exists(log_filename):
+        shutil.copy(log_filename,log_filename+str(int(time.time())))
 
 
 if __name__ == "__main__":
     savelog()
     logging.basicConfig(
-        filename='./utils/results/memory.log',
+        filename=log_filename,
         format='%(message)s',
         filemode='w',
         level=logging.DEBUG

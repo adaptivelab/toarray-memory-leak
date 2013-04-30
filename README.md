@@ -37,3 +37,6 @@ Getting started
 
     # run the load tests
     $ fab vagrant load_test
+
+    # See the results in your browser at:
+    http://localhost:8080
